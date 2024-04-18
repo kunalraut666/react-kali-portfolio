@@ -1,8 +1,8 @@
 {
-  "name": "aliaboalshamlat-portfolio",
+  "name": "kunalraut-portfolio",
   "version": "2.0.0",
   "private": true,
-  "homepage": "https://ali-abo-alshamlat.github.io/",
+  "homepage": "",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

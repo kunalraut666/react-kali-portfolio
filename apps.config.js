@@ -7,11 +7,10 @@ import { displayFirefox } from './components/apps/firefox';
 import { displayChrome } from './components/apps/chrome';
 import { displayTrash } from './components/apps/trash';
 import { displayGedit } from './components/apps/gedit';
-import { displayAboutAli } from './components/apps/ali';
+import { displayAboutKunal } from './components/apps/kunal';
 import { displayTerminalCalc } from './components/apps/calc';
 import { displayMetasploit } from './components/apps/metasploit';
 import { displayNmap } from './components/apps/nmap';
-import { displayCrypt } from './components/apps/crypt';
 import { displayCherrytree } from './components/apps/cherrytree';
 import { displayVlc } from './components/apps/vlc';
 import { displayGithub } from './components/apps/github';
@@ -37,13 +36,13 @@ const apps = [
         screen: displayTerminal,
     },
     {
-        id: "about-ali",
-        title: "About Ali",
+        id: "about-kunal",
+        title: "About Kunal",
         icon: './themes/Flat-Remix-Blue-Dark/system/user-home.svg',
         disabled: false,
         favourite: true,
         desktop_shortcut: true,
-        screen: displayAboutAli,
+        screen: displayAboutKunal,
     },
     {
         id: "firefox",
@@ -143,15 +142,6 @@ const apps = [
         favourite: false,
         desktop_shortcut: false,
         screen: displayNmap,
-    },
-    {
-        id: "crypt",
-        title: "Crypt",
-        icon: './themes/Flat-Remix-Blue-Dark/system/folder.svg',
-        disabled: false,
-        favourite: false,
-        desktop_shortcut: true,
-        screen: displayCrypt,
     },
     {
         id: "cherrytree",

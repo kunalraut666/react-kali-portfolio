@@ -204,3 +204,19 @@ input[type=range].kali-slider::-webkit-slider-thumb {
 .list-arrow {
     list-style: "⇀";
 }
+
+.list-guitar {
+    list-style: "🎸";
+}
+
+.list-ball {
+    list-style: "⚽";
+}
+
+.list-developer {
+    list-style: "💻";
+}
+
+.list-professional {
+    list-style: "💼";
+}
