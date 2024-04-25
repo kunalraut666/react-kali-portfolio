@@ -10,20 +10,15 @@ import { displayGedit } from './components/apps/gedit';
 import { displayAboutKunal } from './components/apps/kunal';
 import { displayTerminalCalc } from './components/apps/calc';
 import { displayMetasploit } from './components/apps/metasploit';
-import { displayNmap } from './components/apps/nmap';
-import { displayCherrytree } from './components/apps/cherrytree';
 import { displayVlc } from './components/apps/vlc';
 import { displayGithub } from './components/apps/github';
 import { displayNeofetch } from './components/apps/neofetch';
-import { displayTracer } from './components/apps/packet-tracer';
 import { displaySqlmap } from './components/apps/sqlmap';
 import { displayDisqusComments } from './components/apps/messaging-app';
 import { displayTextEditor } from './components/apps/editor';
 import { displayWeather } from './components/apps/weather';
 import { displayApache } from './components/apps/apache';
-import { displayShodan } from './components/apps/shodan';
-import { displayZoomEye } from './components/apps/zoom-eye';
-import { displayExploitDatabase } from './components/apps/exploit-database';
+import  displayHtml  from './components/apps/html';
 
 const apps = [
     {
@@ -135,22 +130,13 @@ const apps = [
         screen: displayGedit,
     },
     {
-        id: "nmap",
-        title: "Nmap",
-        icon: './themes/Flat-Remix-Blue-Dark/apps/nmap.svg',
+        id: "index-html",
+        title: "index.html",
+        icon: './themes/filetypes/html.png',
         disabled: false,
         favourite: false,
-        desktop_shortcut: false,
-        screen: displayNmap,
-    },
-    {
-        id: "cherrytree",
-        title: "Cherrytree",
-        icon: './themes/Flat-Remix-Blue-Dark/apps/cherrytree.svg',
-        disabled: false,
-        favourite: false,
-        desktop_shortcut: false,
-        screen: displayCherrytree,
+        desktop_shortcut: true,
+        screen: displayHtml,
     },
     {
         id: "vlc",
@@ -178,15 +164,6 @@ const apps = [
         favourite: false,
         desktop_shortcut: false,
         screen: displayNeofetch,
-    },
-    {
-        id: "tracer",
-        title: "Packet Tracer",
-        icon: './themes/Flat-Remix-Blue-Dark/apps/packet tracer.png',
-        disabled: false,
-        favourite: false,
-        desktop_shortcut: false,
-        screen: displayTracer,
     },
     {
         id: "sqlmap",
@@ -232,34 +209,7 @@ const apps = [
         favourite: false,
         desktop_shortcut: false,
         screen: displayApache,
-    },
-    {
-        id: "shadon",
-        title: "Shadon",
-        icon: './themes/Flat-Remix-Blue-Dark/apps/shodan.png',
-        disabled: false,
-        favourite: false,
-        desktop_shortcut: false,
-        screen: displayShodan,
-    },
-    {
-        id: "zoomeye",
-        title: "ZoomEye",
-        icon: './themes/Flat-Remix-Blue-Dark/apps/zoomeye.svg',
-        disabled: false,
-        favourite: false,
-        desktop_shortcut: false,
-        screen: displayZoomEye,
-    },
-    {
-        id: "exploit-database",
-        title: "Exploit-Database",
-        icon: './themes/Flat-Remix-Blue-Dark/apps/exploit-database.png',
-        disabled: false,
-        favourite: false,
-        desktop_shortcut: false,
-        screen: displayExploitDatabase,
-    },
+    }
 ]
 
 export default apps;

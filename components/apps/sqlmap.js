@@ -45,7 +45,7 @@ export class Sqlmap extends Component {
         return (
             <React.Fragment key={id}>
                 <div className="flex w-full h-5">
-                    <div className=" text-ubt-blue">┌──(ali㉿kali)-[{this.current_directory}] </div>                                                        
+                    <div className=" text-ubt-blue">┌──(kunal㉿kali)-[{this.current_directory}] </div>                                                        
                      </div>
                     <div className="flex">
                     <div className=" text-ubt-blue">└─$ </div> 
@@ -143,7 +143,6 @@ Options:                                                                      <b
  </pre></div>
 
                     </div>
-                    <iframe src="https://suip.biz/?act=sqlmap" className="h-full w-full bg-ub-cool-grey"></iframe>
             </React.Fragment>
         );
         }

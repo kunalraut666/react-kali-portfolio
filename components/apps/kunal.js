@@ -287,7 +287,7 @@ function Projects() {
         {
             name: "Object detection",
             description: [
-                "I developed a real-time Yellow Color Object Detection application using Python. This tool utilizes computer vision techniques to identify and track yellow-colored objects in real-time video streams, offering a specialized solution for applications requiring color-specific object recognition.",
+                "Developed a real-time Yellow Color Object Detection application using Python. This tool utilizes computer vision techniques to identify and track yellow-colored objects in real-time video streams, offering a specialized solution for applications requiring color-specific object recognition.",
             ],
             domains: ["Python"]
         }

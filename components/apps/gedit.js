@@ -9,6 +9,7 @@ export class Gedit extends Component {
         super();
         this.state = {
             sending: false,
+            messageSent: false,
         }
     }
 
@@ -18,11 +19,9 @@ export class Gedit extends Component {
 
     sendMessage = async () => {
         let name = $("#sender-name").val();
-        let subject = $("#sender-subject").val();
         let message = $("#sender-message").val();
 
         name = name.trim();
-        subject = subject.trim();
         message = message.trim();
 
         let error = false;
@@ -44,23 +43,30 @@ export class Gedit extends Component {
 
         const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID;
         const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+        const publicKey = process.env.NEXT_PUBLIC_USER_ID;
         const templateParams = {
             'name': name,
-            'subject': subject,
             'message': message,
         }
-
-        emailjs.send(serviceID, templateID, templateParams).then(() => {
-            this.setState({ sending: false });
-            $("#close-gedit").trigger("click");
-        }).catch(() => {
+    
+        emailjs.send(serviceID, templateID, {
+            from_name: templateParams.name,
+            to_name: "Kunal",
+            message: templateParams.message,
+            }).then(() => {
+            this.setState({ sending: false, messageSent: true });
+            setTimeout(() => { // Delay closing the component for 2 seconds after showing success message
+                $("#close-gedit").trigger("click");
+            }, 2000);
+        }).catch((error) => {
+            console.log(error);
             this.setState({ sending: false });
             $("#close-gedit").trigger("click");
         })
 
         ReactGA.event({
             category: "Send Message",
-            action: `${name}, ${subject}, ${message}`
+            action: `${name}, ${message}`
         });
 
     }
@@ -77,27 +83,28 @@ export class Gedit extends Component {
                 <div className="relative flex-grow flex flex-col bg-ub-gedit-dark font-normal windowMainScreen">
                     <div className="absolute left-0 top-0 h-full px-2 bg-ub-gedit-darker"></div>
                     <div className="relative">
-                        <input id="sender-name" className=" w-full text-ubt-gedit-orange focus:bg-ub-gedit-light outline-none font-medium text-sm pl-6 py-0.5 bg-transparent" placeholder="Your Email / Name :" spellCheck="false" autoComplete="off" type="text" />
+                        <input id="sender-name" className=" w-full text-ubt-gedit-orange focus:bg-ub-gedit-light outline-none font-medium text-sm pl-6 py-0.5 bg-transparent" placeholder="Your Email :" spellCheck="false" autoComplete="off" type="text" />
                         <span className="absolute left-1 top-1/2 transform -translate-y-1/2 font-bold light text-sm text-ubt-gedit-blue">1</span>
                     </div>
-                    <div className="relative">
-                        <input id="sender-subject" className=" w-full my-1 text-ubt-gedit-blue focus:bg-ub-gedit-light gedit-subject outline-none text-sm font-normal pl-6 py-0.5 bg-transparent" placeholder="subject (may be a feedback for this website!)" spellCheck="false" autoComplete="off" type="text" />
-                        <span className="absolute left-1 top-1/2 transform -translate-y-1/2 font-bold  text-sm text-ubt-gedit-blue">2</span>
-                    </div>
+                    
                     <div className="relative flex-grow">
                         <textarea id="sender-message" className=" w-full gedit-message font-light text-sm resize-none h-full windowMainScreen outline-none tracking-wider pl-6 py-1 bg-transparent" placeholder="Message" spellCheck="false" autoComplete="none" type="text" />
-                        <span className="absolute left-1 top-1 font-bold  text-sm text-ubt-gedit-blue">3</span>
+                        <span className="absolute left-1 top-1 font-bold  text-sm text-ubt-gedit-blue">2</span>
                     </div>
                 </div>
                 {
-                    (this.state.sending
-                        ?
+                    this.state.sending && (
                         <div className="flex justify-center items-center animate-pulse h-full w-full bg-gray-400 bg-opacity-30 absolute top-0 left-0">
-                            <img className={" w-8 absolute animate-spin"} src="./themes/Flat-Remix-Blue-Dark/status/process-working-symbolic.svg" alt="Kali Process Symbol" />
+                            <img className={" w-8 absolute animate-spin"} src="./themes/Flat-Remix-Blue-Dark/status/logo_1.png" alt="Kali Process Symbol" />
                         </div>
-                        : null
                     )
                 }
+                {this.state.messageSent && (
+                    <div className="success-message">
+                        <i className="fas fa-check-circle"></i>
+                        <span>Message Sent Successfully!</span>
+                    </div>
+                )}
             </div>
         )
     }

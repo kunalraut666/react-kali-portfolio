@@ -11,9 +11,9 @@ function BootingScreen(props) {
                     : <img width="900px" height="400px" src="./themes/Flat-Remix-Blue-Dark/status/kali-preview-boot.gif" alt="Kali Process Symbol" className="bg-gray" />)}
             </div>
             <div className="text-white">
-                <a className="underline" href="https://www.linkedin.com/in/ali-abo-alshamlat/" rel="noreferrer noopener" target="_blank">linkedin</a>
+                <a className="underline" href="https://www.linkedin.com/in/kunal-raut-9630bb163/" rel="noreferrer noopener" target="_blank">linkedin</a>
                 <span className="font-bold mx-1">|</span>
-                <a href="https://github.com/Ali-Abo-Alshamlat/ali-abo-alshamlat.github.io" rel="noreferrer noopener" target="_blank" className="underline">github</a>
+                <a href="https://github.com/kunalraut666" rel="noreferrer noopener" target="_blank" className="underline">github</a>
             </div>
         </div>
     )
